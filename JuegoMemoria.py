@@ -8,7 +8,7 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None,'count': 0,'won':False}
 hide = [True] * 64
-# Contador de clicks
+# contador
 counter = 0
 
 def square(x, y):
@@ -31,9 +31,8 @@ def xy(count):
     "Convert tiles count to (x, y) coordinates."
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
-# Función que comprueba los pares en las fichas.
+# Función que muestra el número de los pares en las fichas.
 # Te despliega todos los "toques" que llevas al no encontrar el par.
-# También revisa si se encontraron todos los pares, que muestra un mensaje final
 def tap(x, y):
     "Update mark and hidden tiles based on tap."
     if (-200 < x + 50 < 200) and (-200 < y < 200) and not state['won']:
@@ -50,6 +49,7 @@ def tap(x, y):
             hide[mark] = False
             state['mark'] = None
         w = 0
+# Cuando se destapan todos los taps, muestra un mensaje final.
         for i in hide:
             if not i:
                 w += 1
@@ -71,6 +71,7 @@ def draw():
     for count in range(64):
         if hide[count]:
             x, y = xy(count)
+# Nuevo tamaño.
             square(x - 50, y)
 
     mark = state['mark']
@@ -78,12 +79,7 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        if tiles[mark] < 10:
-            goto(x - 34, y + 2)
-        elif tiles[mark] < 20:
-            goto(x - 47, y + 2)
-        else:
-            goto(x - 45, y + 2)
+        goto(x -48, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
@@ -95,7 +91,7 @@ setup(520, 420, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)
-#Esto es para escribir la cantidad de clicks
+# Nuevo.
 writer.up()
 writer.goto(152, 150)
 writer.down()
