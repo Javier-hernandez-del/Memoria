@@ -9,7 +9,7 @@ state = {'mark': None,'count': 0,'won':False}
 hide = [True] * 64
 counter = 0
 
-def square(x, y):
+def square(x, y):  # Función que dibuja los cuadrados en (x,y).
     "Draw white square with black outline at (x, y)."
     up()
     goto(x, y)
@@ -21,15 +21,15 @@ def square(x, y):
         left(90)
     end_fill()
 
-def index(x, y):
+def index(x, y):  # Función que convierte (x,y) en índice de mosaicos.
     "Convert (x, y) coordinates to tiles index."
     return int((x + 200) // 50 + ((y + 200) // 50) * 8)
 
-def xy(count):
+def xy(count):  # Función que convierte el recuento de mosaicos en coordenadas (x,y)
     "Convert tiles count to (x, y) coordinates."
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
-def tap(x, y):
+def tap(x, y):  # Función de marca de actualización y mosaicos ocultos según el toque.
     "Update mark and hidden tiles based on tap."
     if (-200 < x + 50 < 200) and (-200 < y < 200) and not state['won']:
         state['count'] += 1
@@ -56,7 +56,7 @@ def tap(x, y):
             state['won'] = True
             return
 
-def draw():
+def draw():  # Función que dibuja la imágen y las losas.
     "Draw image and tiles."
     clear()
     goto(-50, 0)
