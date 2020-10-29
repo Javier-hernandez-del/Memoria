@@ -2,13 +2,11 @@ from random import *
 from turtle import *
 from freegames import path
 
-# Parámetro nuevo (writer)
 writer = Turtle(visible=False)
 car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None,'count': 0,'won':False}
 hide = [True] * 64
-# Contador de clicks
 counter = 0
 
 def square(x, y):
@@ -31,9 +29,6 @@ def xy(count):
     "Convert tiles count to (x, y) coordinates."
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
-# Función que comprueba los pares en las fichas.
-# Te despliega todos los "toques" que llevas al no encontrar el par.
-# También revisa si se encontraron todos los pares, que muestra un mensaje final
 def tap(x, y):
     "Update mark and hidden tiles based on tap."
     if (-200 < x + 50 < 200) and (-200 < y < 200) and not state['won']:
@@ -95,7 +90,6 @@ setup(520, 420, 370, 0)
 addshape(car)
 hideturtle()
 tracer(False)
-#Esto es para escribir la cantidad de clicks
 writer.up()
 writer.goto(152, 150)
 writer.down()
