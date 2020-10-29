@@ -33,7 +33,7 @@ def xy(count):
 
 # Función que comprueba los pares en las fichas.
 # Te despliega todos los "toques" que llevas al no encontrar el par.
-# También revisa si se encontraron todos los pares 
+# También revisa si se encontraron todos los pares, que muestra un mensaje final
 def tap(x, y):
     "Update mark and hidden tiles based on tap."
     if (-200 < x + 50 < 200) and (-200 < y < 200) and not state['won']:
