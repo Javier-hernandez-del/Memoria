@@ -53,8 +53,8 @@ def tap(x, y):  # Función de marca de actualización y mosaicos ocultos según 
         if w == 64:
             writer.up()
             writer.goto(152, 100)
-            writer.down()
-            writer.write("You won!!!", font=('Arial', 15, 'normal'))
+            writer.down()  
+            writer.write("You won!!!", font=('Arial', 15, 'normal')) 
             state['won'] = True
             return
 
@@ -109,6 +109,7 @@ def draw():  # Función que dibuja la imágen y las losas.
     update()
     ontimer(draw, 100)
 
+# Parámetros del juego.
 shuffle(tiles)
 setup(520, 420, 370, 0)
 addshape(car)
