@@ -85,6 +85,7 @@ def draw():  # Función que dibuja la imágen y las losas.
     update()
     ontimer(draw, 100)
 
+# Parámetros del juego.
 shuffle(tiles)
 setup(520, 420, 370, 0)
 addshape(car)
